@@ -1,0 +1,40 @@
+/* src/index.css → VERSI FOMOGAME FINAL (COPY-PASTE INI SAJA!) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  body {
+    @apply font-['Poppins'] antialiased bg-black text-white min-h-screen;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 bg-clip-text text-transparent font-black;
+  }
+  
+  .btn-gradient {
+    @apply bg-gradient-to-r from-rose-600 to-purple-600 hover:from-rose-700 hover:to-purple-700 
+           text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-rose-500/50 
+           transition-all duration-300 hover:scale-105;
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}

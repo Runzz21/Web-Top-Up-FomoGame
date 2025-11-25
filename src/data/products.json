@@ -1,0 +1,86 @@
+[
+  {
+    "gameId": 1,
+    "items": [
+      { "id": "ml-1", "name": "86 Diamonds", "price": 19000, "discount": 5 },
+      { "id": "ml-2", "name": "172 Diamonds", "price": 38000, "discount": 8 },
+      { "id": "ml-3", "name": "257 Diamonds", "price": 57000, "discount": 10 },
+      { "id": "ml-4", "name": "Starlight Member", "price": 115000, "discount": 15 },
+      { "id": "ml-5", "name": "Twilight Pass", "price": 145000, "discount": 12 }
+    ]
+  },
+  {
+    "gameId": 2,
+    "items": [
+      { "id": "ff-1", "name": "100 Diamonds", "price": 15000, "discount": 3 },
+      { "id": "ff-2", "name": "210 Diamonds", "price": 30000, "discount": 7 },
+      { "id": "ff-3", "name": "355 Diamonds", "price": 49000, "discount": 10 },
+      { "id": "ff-4", "name": "720 Diamonds", "price": 95000, "discount": 15 },
+      { "id": "ff-5", "name": "1450 Diamonds", "price": 190000, "discount": 20 }
+    ]
+  },
+  {
+    "gameId": 3,
+    "items": [
+      { "id": "rbx-1", "name": "800 Robux", "price": 135000 },
+      { "id": "rbx-2", "name": "1700 Robux", "price": 265000, "discount": 5 },
+      { "id": "rbx-3", "name": "4500 Robux", "price": 699000, "discount": 10 },
+      {"id": "rbx-4", "name": "10000 Robux", "price": 1499000, "discount": 15 },
+      { "id": "rbx-5", "name": "22500 Robux", "price": 3299000, "discount": 20 }
+    ]
+  },
+  {
+    "gameId": 4,
+    "items": [
+      { "id": "pubg-1", "name": "325 UC", "price": 55000 },
+      { "id": "pubg-2", "name": "660 UC", "price": 110000, "discount": 8 },
+      {"id": "pubg-3", "name": "1800 UC", "price": 290000, "discount": 12 },
+      { "id": "pubg-4", "name": "3750 UC", "price": 550000, "discount": 15 },
+      {"id": "pubg-5", "name": "8100 UC", "price": 1190000, "discount": 20 },
+      {"id": "pubg-6", "name": "17000 UC", "price": 2490000, "discount": 25 }
+    ]
+  },
+  {
+    "gameId": 5,
+    "items": [
+      { "id": "val-1", "name": "575 Valorant Points", "price": 75000 },
+      { "id": "val-2", "name": "1200 VP", "price": 150000, "discount": 5 },
+      { "id": "val-3", "name": "2500 VP", "price": 300000, "discount": 10 },
+      { "id": "val-4", "name": "6500 VP", "price": 750000, "discount": 15 },
+      { "id": "val-5", "name": "13500 VP", "price": 1500000, "discount": 20 }
+    ]
+  },
+  {
+    "gameId": 6,
+    "items": [
+      { "id": "gi-1", "name": "60 Genesis Crystals", "price": 15000 },
+      { "id": "gi-2", "name": "330 Crystals", "price": 75000, "discount": 10 },
+      { "id": "gi-3", "name": "680 Crystals", "price": 150000, "discount": 15 },
+      { "id": "gi-4", "name": "1380 Crystals", "price": 300000, "discount": 20 },
+      { "id": "gi-5", "name": "2800 Crystals", "price": 600000, "discount": 25 },
+      { "id": "gi-6", "name": "6000 Crystals", "price": 1250000, "discount": 30 }
+    ]
+  },
+  {
+    "gameId": 7,
+    "items": [
+      { "id": "hsr-1", "name": "60 Oneiric Shard", "price": 15000 },
+      { "id": "hsr-2", "name": "Express Supply Pass", "price": 75000 },
+      { "id": "hsr-3", "name": "180 Oneiric Shard", "price": 150000, "discount": 10 },
+      { "id": "hsr-4", "name": "Monthly Card", "price": 300000, "discount": 15 },
+      { "id": "hsr-5", "name": "360 Oneiric Shard", "price": 600000, "discount": 20 },
+      { "id": "hsr-6", "name": "720 Oneiric Shard", "price": 1250000, "discount": 25 }
+    ]
+  },
+  {
+    "gameId": 8,
+    "items": [
+      { "id": "cod-1", "name": "420 CP", "price": 75000 },
+      { "id": "cod-2", "name": "880 CP", "price": 150000, "discount": 10 },
+      { "id": "cod-3", "name": "2000 CP", "price": 300000, "discount": 15 },
+      { "id": "cod-4", "name": "5600 CP", "price": 750000, "discount": 20 },
+      { "id": "cod-5", "name": "12000 CP", "price": 1500000, "discount": 25 },
+      { "id": "cod-6", "name": "25000 CP", "price": 3000000, "discount": 30 }
+    ]
+  }
+]

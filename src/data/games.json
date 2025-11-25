@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Mobile Legends",
+    "slug": "mobile-legends",
+    "icon": "/src/assets/game-icons/mobile-legends.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Free Fire",
+    "slug": "free-fire",
+    "icon": "/src/assets/game-icons/free-fire.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Roblox",
+    "slug": "roblox",
+    "icon": "/src/assets/game-icons/roblox.png"
+  },
+  {
+    "id": 4,
+    "name": "PUBG Mobile",
+    "slug": "pubg-mobile",
+    "icon": "/src/assets/game-icons/pubg-mobile.png"
+  },
+  {
+    "id": 5,
+    "name": "Valorant",
+    "slug": "valorant",
+    "icon": "/src/assets/game-icons/valorant.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Genshin Impact",
+    "slug": "genshin-impact",
+    "icon": "/src/assets/game-icons/genshin-impact.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Honkai Star Rail",
+    "slug": "honkai-star-rail",
+    "icon": "/src/assets/game-icons/honkai-star-rail.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Call of Duty Mobile",
+    "slug": "cod-mobile",
+    "icon": "/src/assets/game-icons/cod-mobile.jpg"
+  }
+]
