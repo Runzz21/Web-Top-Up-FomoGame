@@ -1,7 +1,6 @@
 // src/pages/admin/Orders.tsx
 
 import { useEffect, useState } from 'react';
-import AdminLayout from './AdminLayout'; // Komponen yang diimpor
 import { supabase } from '../../lib/supabase';
 import toast from 'react-hot-toast';
 import { Loader2 } from 'lucide-react'; // Tambahkan untuk loading state

@@ -1,7 +1,6 @@
 // src/pages/admin/Products.tsx
 
 import { useEffect, useState } from 'react'
-import AdminLayout from './AdminLayout' // Komponen yang Diperlukan
 import { supabase } from '../../lib/supabase'
 import toast from 'react-hot-toast'
 import { Trash2, PlusCircle } from 'lucide-react'
