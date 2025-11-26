@@ -61,7 +61,7 @@ export default function Orders() {
 
     // --- KOREKSI: PENGGUNAAN ADMIN LAYOUT DI SINI ---
     return (
-        <AdminLayout> 
+        
             <div className="p-8">
                 <h1 className="text-6xl font-black gradient-text mb-10">All Orders</h1>
 
@@ -134,6 +134,5 @@ export default function Orders() {
                     </div>
                 )}
             </div>
-        </AdminLayout>
     )
 }

@@ -76,8 +76,7 @@ export default function Products() {
   }
 
   // --- KOREKSI: PENGGUNAAN ADMIN LAYOUT DI SINI ---
-  return (
-    <AdminLayout> 
+  return ( 
       <div className="p-8">
         <h1 className="text-6xl font-black gradient-text mb-10">Manage Products</h1>
 
@@ -148,6 +147,5 @@ export default function Products() {
           </div>
         </div>
       </div>
-    </AdminLayout>
   )
 }
