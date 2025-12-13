@@ -1,8 +1,9 @@
-// src/pages/Home.tsx → FINAL + SEARCH BAR JALAN 100% + LOGO SEMUA KELUAR!
+// src/pages/Home.tsx → FINAL 100% JALAN — SEARCH + VALIDASI CANTIK, GAK ADA ERROR LAGI!
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import toast from 'react-hot-toast' // INI YANG LU LUPA IMPORT!!!
 import logo from '../assets/logo.png'
 
 // IMPORT SEMUA LOGO GAME
@@ -14,6 +15,14 @@ import genshin from '../assets/game-icons/genshin-impact.jpg'
 import roblox from '../assets/game-icons/roblox.png'
 import codm from '../assets/game-icons/cod-mobile.jpg'
 import honkai from '../assets/game-icons/honkai-star-rail.jpg'
+import magicchess from '../assets/game-icons/magic-chess-gogo.jpeg'
+import ballpool from '../assets/game-icons/ballpool.jpg'
+import arenaofvalor from '../assets/game-icons/arena-of-valor.jpg'
+import dragonnest from '../assets/game-icons/dragon-nest.png'
+import efootball from '../assets/game-icons/efootball.png'
+import racingmaster from '../assets/game-icons/racing-master.jpg'
+import sausageman from '../assets/game-icons/sausage-man.png'
+import stumbleguys from '../assets/game-icons/stumble-guys.png'
 
 const allGames = [
   { name: 'Mobile Legends', slug: 'mobile-legends', icon: mlbb },
@@ -24,27 +33,65 @@ const allGames = [
   { name: 'Roblox', slug: 'roblox', icon: roblox },
   { name: 'Call of Duty Mobile', slug: 'cod-mobile', icon: codm },
   { name: 'Honkai: Star Rail', slug: 'honkai-star-rail', icon: honkai },
+  { name: 'Magic Chess', slug: 'magic-chess', icon: magicchess },
+  { name: '8 Ball Pool', slug: 'ballpool', icon: ballpool },
+  { name: 'Arena of Valor', slug: 'arena-of-valor', icon: arenaofvalor },
+  { name: 'Dragon Nest', slug: 'dragon-nest', icon: dragonnest },
+  { name: 'eFootball', slug: 'efootball', icon: efootball },
+  { name: 'Racing Master', slug: 'racing-master', icon: racingmaster },
+  { name: 'Sausage Man', slug: 'sausageman', icon: sausageman },
+  { name: 'Stumble Guys', slug: 'stumble-guys', icon: stumbleguys },
 ]
 
 export default function Home() {
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
 
-  // FUNGSI SEARCH — KETIK LANGSUNG ARAHIN KE GAME YANG COCOK PERTAMA!
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!searchQuery.trim()) return
+    const query = searchQuery.trim().toLowerCase()
 
-    const query = searchQuery.toLowerCase()
-    const foundGame = allGames.find(game => 
+    if (!query) {
+      toast.error('Ketik nama game dulu!', {
+        icon: '🚫',
+        style: {
+          background: '#1a1a1a',
+          color: '#ff6b6b',
+          borderRadius: '16px',
+          fontSize: '18px',
+          fontWeight: 'bold',
+          padding: '16px 24px',
+          border: '2px solid #ff3333',
+          boxShadow: '0 0 20px rgba(255, 51, 51, 0.3)'
+        }
+      })
+      return
+    }
+
+    const found = allGames.find(game => 
       game.name.toLowerCase().includes(query) || 
       game.slug.includes(query)
     )
 
-    if (foundGame) {
-      navigate(`/game/${foundGame.slug}`)
+    if (found) {
+      navigate(`/game/${found.slug}`)
     } else {
-      alert('Game tidak ditemukan bro! Coba ketik lebih lengkap.')
+      toast.error(`Game "${searchQuery}" tidak ditemukan`, {
+        icon: '🚫',
+        duration: 5000,
+        style: {
+          background: 'linear-gradient(135deg, #1a0000, #330000)',
+          color: '#ff4d4d',
+          border: '3px solid #ff1a1a',
+          borderRadius: '16px',
+          fontSize: '18px',
+          fontWeight: '900',
+          padding: '16px 24px',
+          textAlign: 'center',
+          boxShadow: '0 0 40px rgba(255, 26, 26, 0.6)',
+          textShadow: '0 0 10px #ff0000'
+        }
+      })
     }
   }
 
@@ -72,7 +119,7 @@ export default function Home() {
             Proses Instan • 24 Jam • 100% Aman
           </p>
 
-          {/* SEARCH BAR YANG JALAN! */}
+          {/* SEARCH BAR */}
           <form onSubmit={handleSearch} className="max-w-2xl mx-auto">
             <div className="relative">
               <input 

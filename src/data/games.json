@@ -46,5 +46,53 @@
     "name": "Call of Duty Mobile",
     "slug": "cod-mobile",
     "icon": "/src/assets/game-icons/cod-mobile.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Magic Chess",
+    "slug": "magic-chess",
+    "icon": "/src/assets/game-icons/magic-chess-gogo.jpeg"
+  },
+  { "id": 10,
+    "name": " 8 Ball Pool",
+    "slug": "ballpool",
+    "icon": "/src/assets/game-icons/ballpool.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Arena of Valor",
+    "slug": "arena-of-valor",
+    "icon": "/src/assets/game-icons/arena-of-valor.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Dragon Nest",
+    "slug": "dragon-nest",
+    "icon": "/src/assets/game-icons/dragon-nest.png"
+  },
+  {
+    "id": 13,
+    "name": "E Football",
+    "slug": "efootball",
+    "icon": "/src/assets/game-icons/efootball.png"
+  },
+  {
+    "id": 14,
+    "name": "Racing Master",
+    "slug": "racing-master",
+    "icon": "/src/assets/game-icons/racing-master.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Sausage Man",
+    "slug": "sausageman",
+    "icon": "/src/assets/game-icons/sausage-man.png"
+  },
+  {
+    "id": 16,
+    "name": "Stumble Guys",
+    "slug": "stumble-guys",
+    "icon": "/src/assets/game-icons/stumble-guys.png"
   }
+
 ]

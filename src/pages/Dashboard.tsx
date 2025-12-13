@@ -13,6 +13,14 @@ import genshin from '../assets/game-icons/genshin-impact.jpg'
 import roblox from '../assets/game-icons/roblox.png'
 import codm from '../assets/game-icons/cod-mobile.jpg'
 import honkai from '../assets/game-icons/honkai-star-rail.jpg' 
+import magicchess from '../assets/game-icons/magic-chess-gogo.jpeg' 
+import ballpool from '../assets/game-icons/ballpool.jpg'
+import arenaofvalor from '../assets/game-icons/arena-of-valor.jpg'
+import dragonnest from '../assets/game-icons/dragon-nest.png'
+import efootball from '../assets/game-icons/efootball.png'
+import racingmaster from '../assets/game-icons/racing-master.jpg'
+import sausageman from '../assets/game-icons/sausage-man.png'
+import stumbleguys from '../assets/game-icons/stumble-guys.png'
 // buat fallback kalau game belum ada
 
 // Mapping nama game → logo (PAKAI IMPORT DI ATAS)
@@ -25,6 +33,14 @@ const gameLogos: { [key: string]: string } = {
   'Roblox': roblox,
   'Call of Duty Mobile': codm,
   'Honkai: Star Rail': honkai,
+  'Magic Chess': magicchess,
+  '8 Ball Pool':ballpool,
+  'Arena of Valor': arenaofvalor,
+  'Dragon Nest': dragonnest,
+  'eFootball': efootball,
+  'Racing Master': racingmaster,
+  'Sausage Man': sausageman,
+  'Stumble Guys': stumbleguys,
   // Tambah game baru? Tinggal import + tambah di sini aja!
 }
 
