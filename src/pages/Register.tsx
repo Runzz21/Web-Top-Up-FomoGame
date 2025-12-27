@@ -1,13 +1,10 @@
-// src/pages/Register.tsx → FINAL + FLOATING LINES BACKGROUND CANTIK GILA!
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import toast from 'react-hot-toast'
 import { Eye, EyeOff } from 'lucide-react'
 import logo from '../assets/logo.png'
-
-// IMPORT FLOATING LINES — SESUAIKAN PATH LU!
-import FloatingLines from '../components/FloatingLines' // atau '../components/FloatingLines-TS-TW' kalau nama filenya gitu
+import ParticlesBackground from '../components/ParticlesBackground' // Import ParticlesBackground
 
 export default function Register() {
   const [name, setName] = useState('')
@@ -37,18 +34,7 @@ export default function Register() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* FLOATING LINES BACKGROUND — CANTIK GILA! */}
-      <div className="fixed inset-0 -z-50">
-        <FloatingLines
-          lineCount={[10, 8, 12]}
-          lineDistance={[10, 8, 12]}
-          animationSpeed={0.6}
-          interactive={true}
-          parallax={true}
-          parallaxStrength={0.3}
-          linesGradient={['#ff006e', '#a855f7', '#3b82f6']} // Pink → Purple → Blue neon
-        />
-      </div>
+      <ParticlesBackground /> {/* Add ParticlesBackground component */}
 
       {/* CONTENT REGISTER — DI DEPAN BACKGROUND */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
@@ -76,7 +62,7 @@ export default function Register() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-6 py-4 bg-gray-800/60 border border-gray-700 rounded-xl focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/20 transition text-white placeholder-gray-500"
+                  className="w-full px-6 py-4 bg-gray-800/60 border border-gray-700 rounded-2xl focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/20 transition text-white placeholder-gray-500"
                   placeholder="Nama kamu"
                   required
                 />
@@ -88,7 +74,7 @@ export default function Register() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-6 py-4 bg-gray-800/60 border border-gray-700 rounded-xl focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/20 transition text-white placeholder-gray-500"
+                  className="w-full px-6 py-4 bg-gray-800/60 border border-gray-700 rounded-2xl focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/20 transition text-white placeholder-gray-500"
                   placeholder="email@contoh.com"
                   required
                 />
@@ -100,7 +86,7 @@ export default function Register() {
                   type={showPass ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-6 py-4 bg-gray-800/60 border border-gray-700 rounded-xl focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/20 transition text-white pr-14"
+                  className="w-full px-6 py-4 bg-gray-800/60 border border-gray-700 rounded-2xl focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/20 transition text-white pr-14"
                   placeholder="Minimal 6 karakter"
                   minLength={6}
                   required
@@ -116,7 +102,7 @@ export default function Register() {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-rose-600 to-purple-700 hover:from-rose-500 hover:to-purple-600 py-5 rounded-xl text-xl font-black tracking-wider transition transform hover:scale-105 shadow-lg"
+                className="w-full bg-gradient-to-r from-rose-600 to-purple-700 hover:from-rose-500 hover:to-purple-600 py-5 rounded-2xl text-2xl font-black tracking-wider transition transform hover:scale-105 shadow-lg"
               >
                 Buat Akun Gratis
               </button>

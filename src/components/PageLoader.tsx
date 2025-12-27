@@ -4,24 +4,24 @@ import logo from '../assets/logo.png' // PASTIKAN LOGO LU DI src/assets/logo.png
 
 export default function PageLoader() {
   return (
-    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black overflow-hidden">
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black overflow-hidden p-4">
       
       {/* CARD LOGO MIRING + GLOW PINK */}
       <motion.div
-        initial={{ y: -100, rotate: -25, opacity: 0 }}
+        initial={{ y: -50, rotate: -25, opacity: 0 }}
         animate={{ y: 0, rotate: -15, opacity: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="relative mb-20"
+        className="relative mb-12 sm:mb-20"
       >
         {/* GLOW EFEK */}
         <div className="absolute inset-0 bg-gradient-to-br from-rose-500/40 to-purple-600/40 blur-3xl scale-150 animate-pulse" />
         
         {/* CARD LOGO */}
-        <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-10 border-4 border-rose-500/60 shadow-2xl">
+        <div className="relative bg-gray-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 md:p-10 border-4 border-rose-500/60 shadow-2xl">
           <img 
             src={logo} 
             alt="FomoGame" 
-            className="w-32 h-32 mx-auto"
+            className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto"
             onError={(e) => e.currentTarget.src = "https://via.placeholder.com/128x128/1a1a1a/rose-500?text=F"}
           />
         </div>
@@ -32,7 +32,7 @@ export default function PageLoader() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="text-8xl md:text-9xl font-black bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 bg-clip-text text-transparent drop-shadow-2xl"
+        className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 bg-clip-text text-transparent drop-shadow-2xl"
         style={{ textShadow: '0 0 60px rgba(244, 63, 94, 0.8)' }}
       >
         FOMOGAME
@@ -43,7 +43,7 @@ export default function PageLoader() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="text-2xl text-gray-400 mt-8 font-medium tracking-wider"
+        className="text-lg sm:text-xl md:text-2xl text-gray-400 mt-6 sm:mt-8 font-medium tracking-wider"
       >
         Loading....
       </motion.p>

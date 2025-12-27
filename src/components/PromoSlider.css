@@ -1,0 +1,16 @@
+/* src/components/PromoSlider.css */
+
+@keyframes fire-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px #f97316, 0 0 10px #f97316, 0 0 20px #ef4444;
+    color: #fdba74;
+  }
+  50% {
+    text-shadow: 0 0 10px #ef4444, 0 0 20px #ef4444, 0 0 30px #f97316;
+    color: #fca5a5;
+  }
+}
+
+.fire-text {
+  animation: fire-glow 2s ease-in-out infinite;
+}

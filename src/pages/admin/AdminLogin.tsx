@@ -3,9 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../../lib/supabase'
 import toast from 'react-hot-toast'
-
-// IMPORT FLOATING LINES — SESUAIKAN PATH LU!
-import FloatingLines from '../../components/FloatingLines' // atau '../../components/FloatingLines-TS-TW' kalau nama filenya gitu
+import ParticlesBackground from '../../components/ParticlesBackground' // Import ParticlesBackground
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('')
@@ -26,8 +24,7 @@ export default function AdminLogin() {
       toast.error(error.message)
       setLoading(false)
     } else {
-      const isAdmin = data.user?.email === 'admin@fomogame.com' || 
-                      data.user?.user_metadata?.role === 'admin'
+      const isAdmin = data.user?.email === 'admin@fomogame.com'
 
       if (isAdmin) {
         toast.success('Login Admin Berhasil!')
@@ -42,18 +39,7 @@ export default function AdminLogin() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* FLOATING LINES BACKGROUND — CANTIK GILA! */}
-      <div className="fixed inset-0 -z-50">
-        <FloatingLines
-          lineCount={[10, 8, 12]}
-          lineDistance={[10, 8, 12]}
-          animationSpeed={0.6}
-          interactive={true}
-          parallax={true}
-          parallaxStrength={0.3}
-          linesGradient={['#ff006e', '#a855f7', '#3b82f6']} // Pink → Purple → Blue neon
-        />
-      </div>
+      <ParticlesBackground /> {/* Add ParticlesBackground component */}
 
       {/* CONTENT ADMIN LOGIN — DI DEPAN BACKGROUND */}
       <div className="relative z-10 flex items-center justify-center min-h-screen p-4">

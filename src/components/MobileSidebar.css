@@ -1,0 +1,113 @@
+/* src/components/MobileSidebar.css */
+
+.mobile-sidebar {
+  @apply fixed inset-0 z-50;
+}
+
+.sidebar-backdrop {
+  @apply fixed inset-0 bg-black/60;
+}
+
+.sidebar-content {
+  @apply fixed top-0 left-0 h-full w-[280px] bg-black/80 backdrop-blur-lg border-r border-purple-500/30 flex flex-col shadow-2xl shadow-purple-900/50;
+  overflow-y: auto; /* For smaller height screens */
+}
+
+/* Header Glows */
+.logo-glow {
+  filter: drop-shadow(0 0 12px rgba(236, 72, 153, 0.7)) drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+  transition: filter 0.3s ease;
+}
+.logo-glow:hover {
+  filter: drop-shadow(0 0 18px rgba(236, 72, 153, 1)) drop-shadow(0 0 30px rgba(139, 92, 246, 0.7));
+}
+
+.avatar-glow {
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.6), 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Navigation Links */
+.nav-link {
+  @apply flex items-center gap-4 p-4 rounded-lg text-lg font-semibold text-gray-300;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  @apply bg-white/5 text-white scale-105;
+  text-shadow: 0 0 8px rgba(236, 72, 153, 0.5);
+}
+.nav-link:active {
+  @apply bg-white/10 text-white scale-100;
+  text-shadow: none;
+}
+
+.nav-link .icon {
+  transition: all 0.2s ease-in-out;
+}
+.nav-link:hover .icon {
+  @apply text-rose-400;
+  filter: drop-shadow(0 0 6px rgba(236, 72, 153, 0.7));
+}
+.nav-link:active .icon {
+  @apply text-rose-500;
+  filter: drop-shadow(0 0 3px rgba(236, 72, 153, 0.7));
+}
+
+/* Active Link */
+.nav-link.active {
+  @apply text-white font-bold;
+  background: linear-gradient(90deg, theme('colors.rose.600 / 30%'), theme('colors.purple.600 / 20%'));
+  border: 1px solid theme('colors.rose.500/50');
+}
+.nav-link.active .icon {
+  @apply text-rose-400;
+  filter: drop-shadow(0 0 8px theme('colors.rose.400'));
+}
+
+/* Logout Link */
+.logout-link:hover {
+  @apply bg-red-500/10 text-red-400 scale-105;
+  text-shadow: 0 0 8px rgba(244, 63, 94, 0.5);
+}
+.logout-link:active {
+  @apply bg-red-500/20 text-red-300 scale-100;
+  text-shadow: none;
+}
+.logout-link:hover .icon {
+  @apply text-red-400;
+  filter: drop-shadow(0 0 6px rgba(244, 63, 94, 0.7));
+}
+.logout-link:active .icon {
+  @apply text-red-300;
+  filter: drop-shadow(0 0 3px rgba(244, 63, 94, 0.7));
+}
+
+
+/* HOT Badge */
+.hot-badge {
+  @apply bg-rose-500 text-white text-xs font-bold px-2 py-0.5 rounded-full;
+  animation: pulse-badge 1.5s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 8px 4px rgba(236, 72, 153, 0);
+  }
+}
+
+/* Support Button */
+.support-button {
+  background: linear-gradient(90deg, theme('colors.green.500'), theme('colors.emerald.500'));
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+}
+
+.support-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.8);
+}

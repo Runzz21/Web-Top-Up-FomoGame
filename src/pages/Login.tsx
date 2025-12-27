@@ -5,9 +5,7 @@ import { supabase } from '../lib/supabase'
 import toast from 'react-hot-toast'
 import { Eye, EyeOff } from 'lucide-react'
 import logo from '../assets/logo.png'
-
-// IMPORT FLOATING LINES — SESUAIKAN PATH LU
-import FloatingLines from '../components/FloatingLines' // atau '../components/FloatingLines-TS-TW' kalau nama filenya gitu
+import ParticlesBackground from '../components/ParticlesBackground' // Import ParticlesBackground
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -35,7 +33,7 @@ export default function Login() {
       if (error) {
         if (error.message.includes('Invalid login credentials')) {
           toast.error('Email atau password salah bro!')
-        } else if (error.message.includes('Email not confirmed')) {
+        } else if (error.message.includes('Email belum diverifikasi! Cek inbox/spam lu.')) {
           toast.error('Email belum diverifikasi! Cek inbox/spam lu.')
         } else {
           toast.error(error.message)
@@ -59,21 +57,7 @@ export default function Login() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* FLOATING LINES BACKGROUND — FIXED & INTERAKTIF! */}
-      <div className="fixed inset-0 -z-50 pointer-events-none">
-        <div className="absolute inset-0 pointer-events-auto">
-          <FloatingLines
-            lineCount={[10, 8, 12]}
-            lineDistance={[10, 8, 12]}
-            animationSpeed={0.6}
-            interactive={true}
-            parallax={true}
-            parallaxStrength={0.3}
-            linesGradient={['#ff006e', '#a855f7', '#3b82f6']} // Pink → Purple → Blue neon
-            // HAPUS className="w-full h-full" → INI YANG BIKIN ERROR!
-          />
-        </div>
-      </div>
+      <ParticlesBackground /> {/* Add ParticlesBackground component */}
 
       {/* CONTENT LOGIN — DI DEPAN BACKGROUND */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4 py-10">

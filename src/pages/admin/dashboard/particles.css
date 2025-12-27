@@ -1,0 +1,45 @@
+/* fomogame/src/pages/admin/dashboard/particles.css */
+.particle-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background-color: #000000;
+    background-image: 
+        radial-gradient(ellipse at 70% 20%, rgba(138, 43, 226, 0.15), transparent 50%),
+        radial-gradient(ellipse at 30% 80%, rgba(218, 112, 214, 0.15), transparent 50%),
+        radial-gradient(ellipse at 90% 90%, rgba(255, 105, 180, 0.1), transparent 60%);
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: #ff00ff; /* Magenta */
+    animation: float 25s infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-50vh) translateX(10vw);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(-10vw);
+        opacity: 0;
+    }
+}

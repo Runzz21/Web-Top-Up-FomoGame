@@ -1,9 +1,10 @@
-// src/pages/Checkout.tsx → FINAL + TOMBOL KEMBALI KE HOME!
+// src/pages/Checkout.tsx
 import { useLocation, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import toast from 'react-hot-toast'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { ArrowLeft, User, Package, Lock, Copy } from 'lucide-react'
 
 // IMPORT GAMBAR DARI src/assets/game-icons/
 import mlbb from '../assets/game-icons/mobile-legends.jpg'
@@ -23,8 +24,18 @@ import racingmaster from '../assets/game-icons/racing-master.jpg'
 import sausageman from '../assets/game-icons/sausage-man.png'
 import stumbleguys from '../assets/game-icons/stumble-guys.png'
 
+// IMPORT GAMBAR DARI src/assets/payment-logos/
+import alfamart from '../assets/payment-logos/alfamart.webp'
+import banktransfer from '../assets/payment-logos/bank-transfer.webp'
+import dana from '../assets/payment-logos/dana.webp'
+import gopay from '../assets/payment-logos/gopay.webp'
+import indomaret from '../assets/payment-logos/indomaret.webp'
+import kartukredit from '../assets/payment-logos/kartu-kredit.webp'
+import ovo from '../assets/payment-logos/ovo.webp'
+import qris from '../assets/payment-logos/qris.webp'
+import shoopepay from '../assets/payment-logos/shoopepay.webp'
 
-const payments = ['QRIS', 'OVO', 'GoPay', 'ShopeePay', 'DANA', 'Alfamart', 'Indomaret']
+const payments = ['QRIS', 'OVO', 'GoPay', 'ShopeePay', 'DANA', 'Alfamart', 'Indomaret', 'Bank Transfer', 'Kartu Kredit']
 
 const gameLogoMap: Record<string, string> = {
   'Mobile Legends': mlbb,
@@ -44,6 +55,19 @@ const gameLogoMap: Record<string, string> = {
   'Sausage Man': sausageman,
   'Stumble Guys': stumbleguys,
 }
+
+const paymentLogoMap: Record<string, string> = {
+  'QRIS': qris,
+  'OVO': ovo,
+  'GoPay': gopay,
+  'ShopeePay': shoopepay,
+  'DANA': dana,
+  'Alfamart': alfamart,
+  'Indomaret': indomaret,
+  'Bank Transfer': banktransfer,
+  'Kartu Kredit': kartukredit,
+}
+
 
 export default function Checkout() {
   const navigate = useNavigate()
@@ -81,7 +105,7 @@ export default function Checkout() {
       toast.error('Gagal proses order!')
     } else {
       toast.success('Order berhasil! Tunggu proses ya bro!')
-      navigate('/success')
+      navigate('/success', { state: { method, amount: orderData.price } })
     }
   }
 
@@ -93,88 +117,110 @@ export default function Checkout() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-black via-[#0a0a0a] to-purple-900/50 py-20 px-6">
+      <div className="min-h-screen bg-gradient-to-br from-black via-[#0a0a0a] to-purple-900/50 py-12 px-4">
         <div className="max-w-6xl mx-auto">
 
-          <h1 className="text-8xl font-black text-center mb-16 bg-gradient-to-r from-rose-500 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-center mb-10 md:mb-16 bg-gradient-to-r from-rose-500 to-purple-600 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(255,0,255,0.5)]">
             CHECKOUT PESANAN
           </h1>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
 
-            {/* DETAIL PESANAN + TOMBOL KEMBALI */}
-            <div className="bg-gray-900/95 backdrop-blur-xl rounded-3xl p-12 border-2 border-rose-500/40 shadow-2xl">
-              <h2 className="text-5xl font-black text-rose-400 mb-10">Detail Pesanan</h2>
+            {/* DETAIL PESANAN */}
+            <div className="bg-gray-900/95 backdrop-blur-xl rounded-3xl p-6 md:p-12 border-2 border-rose-500/40 shadow-2xl relative overflow-hidden">
+              <div className="absolute inset-0 z-0 opacity-10">
+                  <div className="absolute top-0 -left-1/4 w-60 h-60 bg-rose-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+                  <div className="absolute bottom-0 -right-1/4 w-60 h-60 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-500"></div>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-rose-400 mb-6 md:mb-8 relative z-10">Ringkasan Pesanan Anda</h2>
               
-              <div className="flex items-center gap-10 mb-10">
+              <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-8 relative z-10">
                 <img 
                   src={gameLogo}
                   alt={orderData.gameName}
-                  className="w-40 h-40 rounded-3xl object-cover border-4 border-rose-500/60 shadow-2xl"
+                  className="w-20 h-20 md:w-28 md:h-28 rounded-xl md:rounded-2xl object-cover border-4 border-rose-500/60 shadow-xl"
                   onError={(e) => e.currentTarget.src = 'https://via.placeholder.com/160x160/1a1a1a/rose-500?text=FOMO'}
                 />
                 <div>
-                  <h3 className="text-5xl font-black text-white">{orderData.gameName}</h3>
-                  <p className="text-2xl text-gray-300 mt-2">
+                  <h3 className="text-xl md:text-3xl font-black text-white">{orderData.gameName}</h3>
+                  <div className="flex items-center gap-2 text-base md:text-xl text-gray-300 mt-2">
+                    <User size={18} className="text-rose-400" />
                     ID: <span className="text-rose-300 font-mono">{orderData.userId}</span>
                     {orderData.zone && <span className="text-gray-500"> ({orderData.zone})</span>}
-                  </p>
+                  </div>
+                  <button
+                      onClick={() => { navigator.clipboard.writeText(orderData.userId); toast.success('ID Pengguna disalin!'); }}
+                      className="flex items-center gap-2 text-xs px-2 py-1 bg-gray-800 rounded-md hover:bg-rose-500/20 text-gray-300 hover:text-rose-400 transition-colors mt-2"
+                  >
+                      <Copy size={12} /> Salin ID
+                  </button>
                 </div>
               </div>
 
-              <div className="border-t-2 border-gray-700 pt-8">
-                <p className="text-3xl text-gray-400 mb-4">{orderData.productName}</p>
-                <p className="text-7xl font-black text-rose-400">
+              <div className="bg-gray-800 p-4 md:p-6 rounded-xl border border-gray-700 mb-6 md:mb-8 relative z-10">
+                <p className="text-base md:text-lg text-gray-400 flex items-center gap-2 mb-2"><Package size={18}/> Item Dipilih:</p>
+                <p className="text-xl md:text-2xl font-bold text-white">{orderData.productName}</p>
+              </div>
+
+              <div className="flex justify-between items-center border-t-2 border-gray-700 pt-6 relative z-10">
+                <p className="text-xl md:text-3xl font-bold text-white">Total Pembayaran:</p>
+                <p className="text-3xl md:text-4xl font-black bg-gradient-to-r from-rose-400 to-purple-400 bg-clip-text text-transparent">
                   {formatRupiah(orderData.price)}
                 </p>
               </div>
 
-              {/* TOMBOL KEMBALI KE HOME — GANTENG BANGET! */}
-              <div className="mt-12">
+              {/* TOMBOL KEMBALI */}
+              <div className="mt-8 relative z-10">
                 <button
-                  onClick={() => navigate('/')}
-                  className="w-full bg-gradient-to-r from-gray-800 to-gray-900 hover:from-rose-700 hover:to-purple-800 
-                             border-2 border-gray-700 hover:border-rose-500 
-                             py-6 rounded-2xl font-black text-2xl text-white 
-                             transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-rose-500/50
-                             flex items-center justify-center gap-4 group"
+                  onClick={() => navigate(-1)}
+                  className="w-full bg-gradient-to-r from-gray-800 to-gray-900 hover:from-purple-800 hover:to-gray-900 
+                             border-2 border-gray-700 hover:border-purple-500 
+                             py-4 md:py-5 rounded-2xl font-bold text-lg md:text-xl text-white 
+                             transition-all duration-300 hover:scale-105 active:scale-100 hover:shadow-2xl hover:shadow-purple-500/40
+                             flex items-center justify-center gap-3 group"
                 >
-                  <svg className="w-8 h-8 group-hover:-translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                  </svg>
-                  KEMBALI KE HOME
+                  <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={24} />
+                  KEMBALI
                 </button>
               </div>
             </div>
 
             {/* PEMBAYARAN */}
-            <div className="bg-gray-900/95 backdrop-blur-xl rounded-3xl p-12 border-2 border-rose-500/40 shadow-2xl">
-              <h2 className="text-5xl font-black text-rose-400 mb-12 text-center">
-                Pilih Pembayaran
+            <div className="bg-gray-900/95 backdrop-blur-xl rounded-3xl p-6 md:p-12 border-2 border-rose-500/40 shadow-2xl relative overflow-hidden">
+              <div className="absolute inset-0 z-0 opacity-10">
+                  <div className="absolute top-0 -left-1/4 w-60 h-60 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-700"></div>
+                  <div className="absolute bottom-0 -right-1/4 w-60 h-60 bg-rose-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1200"></div>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-rose-400 mb-8 md:mb-12 text-center relative z-10">
+                Pilih Metode Pembayaran
               </h2>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-8 relative z-10">
                 {payments.map((method) => (
                   <button
                     key={method}
                     onClick={() => handlePay(method)}
                     className="bg-gradient-to-br from-gray-800 to-gray-900 hover:from-rose-600/80 hover:to-purple-700 
                                border-2 border-gray-700 hover:border-rose-500 
-                               p-6 rounded-3xl font-black text-xl text-white 
-                               transition-all duration-300 hover:scale-110 hover:shadow-2xl
-                               flex items-center justify-center h-32"
+                               p-4 md:p-6 rounded-2xl md:rounded-3xl font-black text-base md:text-xl text-white 
+                               transition-all duration-300 hover:scale-110 active:scale-105 hover:shadow-2xl hover:shadow-rose-500/50
+                               flex flex-col items-center justify-center h-28 md:h-40 gap-2 md:gap-4 relative overflow-hidden group"
                   >
-                    <span className="text-center leading-tight whitespace-pre-line">
+                    <img src={paymentLogoMap[method]} alt={method} className="h-8 md:h-12 object-contain group-hover:scale-110 transition-transform" />
+                    <span className="text-center text-sm md:text-base leading-tight whitespace-pre-line group-hover:text-white transition-colors">
                       {method === 'ShopeePay' ? 'Shopee\nPay' : 
                        method === 'Alfamart' ? 'Alfa\nmart' : 
-                       method === 'Indomaret' ? 'Indo\nmaret' : method}
+                       method === 'Indomaret' ? 'Indo\nmaret' :
+                       method === 'Bank Transfer' ? 'Bank\nTransfer' :
+                       method === 'Kartu Kredit' ? 'Kartu\nKredit' : method}
                     </span>
                   </button>
                 ))}
               </div>
 
-              <p className="text-center text-gray-400 mt-10 text-lg">
-                Klik → Order langsung masuk!
+              <p className="text-center text-gray-400 mt-8 md:mt-10 text-sm md:text-lg relative z-10 flex items-center justify-center gap-2">
+                <Lock size={16} className="text-green-400" />
+                Transaksi Aman & Terjamin dengan Enkripsi SSL
               </p>
             </div>
           </div>
